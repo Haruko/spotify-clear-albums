@@ -1,0 +1,30 @@
+{
+  "name": "spotify-clear-albums",
+  "version": "0.0.1",
+  "description": "Remove albums from user's Spotify Library",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Haruko/yasnpa.git"
+  },
+  "keywords": [
+    "Spotify",
+    "Library"
+  ],
+  "author": "Isoitiro",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/Haruko/yasnpa/issues"
+  },
+  "homepage": "https://github.com/Haruko/yasnpa#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "open": "^7.1.0",
+    "pkce": "^1.0.0-beta2",
+    "querystring": "^0.2.0"
+  }
+}
