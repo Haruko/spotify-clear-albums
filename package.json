@@ -1,6 +1,6 @@
 {
   "name": "spotify-clear-albums",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Remove albums from user's Spotify Library",
   "main": "index.js",
   "bin": "index.js",
