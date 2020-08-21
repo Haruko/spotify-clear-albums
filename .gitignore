@@ -1,3 +1,6 @@
+bin/
+release/
+
 # Logs
 logs
 *.log
