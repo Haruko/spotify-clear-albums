@@ -3,12 +3,21 @@
   "version": "0.0.1",
   "description": "Remove albums from user's Spotify Library",
   "main": "index.js",
+  "bin": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "npm run build && \"./bin/spotify-clear-albums/spotify-clear-albums.exe\"",
+    "build": "npm run build-exec && npm run copy-sub",
+    "build-exec": "pkg -t latest-win --out-path ./bin/spotify-clear-albums/ ./package.json",
+    "copy-sub": "npm run copy-dep",
+    "copy-dep": "powershell Copy-Item ./node_modules/open/xdg-open ./bin/spotify-clear-albums/",
+    "release": "npm run build && npm run make-dir && npm run compress",
+    "make-dir": "powershell md ./release -Force",
+    "compress": "powershell Compress-Archive -Path ./bin/spotify-clear-albums -DestinationPath ./release/spotify-clear-albums%npm_package_version%.zip",
+    "clean": "powershell Remove-Item -Recurse -Force ./bin, ./release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Haruko/yasnpa.git"
+    "url": "git+https://github.com/Haruko/spotify-clear-albums.git"
   },
   "keywords": [
     "Spotify",
@@ -17,14 +26,19 @@
   "author": "Isoitiro",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/Haruko/yasnpa/issues"
+    "url": "https://github.com/Haruko/spotify-clear-albums/issues"
   },
-  "homepage": "https://github.com/Haruko/yasnpa#readme",
+  "homepage": "https://github.com/Haruko/spotify-clear-albums#readme",
   "dependencies": {
     "axios": "^0.19.2",
     "express": "^4.17.1",
     "open": "^7.1.0",
     "pkce": "^1.0.0-beta2",
     "querystring": "^0.2.0"
+  },
+  "pkg": {
+    "assets": [
+      "./public/*"
+    ]
   }
 }
